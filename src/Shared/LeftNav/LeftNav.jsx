@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './LeftNav.css'
 
 const LeftNav = () => {
     const[categories,setCategories] = useState([])
@@ -13,7 +14,7 @@ const LeftNav = () => {
         <div>
             <h2>All Category</h2>
             {
-                categories.map(categoriy => <p className='p-2'>{categoriy.name}</p>)
+                categories.map(categoriy => <p className='categoriy p-2'>{categoriy.name}</p>)
             }
         </div>
     );
