@@ -2,12 +2,13 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 import moment from 'moment';
-import { FaEye , FaRegBookmark , FaShareAlt} from 'react-icons/fa';
+import { FaEye, FaRegBookmark, FaShareAlt , FaStar , FaRegStar} from 'react-icons/fa';
 import './Category.css'
+import Rating from 'react-rating';
 
 
 const Category = ({ category }) => {
-    const { image_url, title, details, total_view, author , rating , _id} = category
+    const { image_url, title, details, total_view, author, rating, _id } = category
     return (
         <Card className='my-5'>
             <Card.Header className='d-flex justify-content-between px-3 align-items-center'>
@@ -33,7 +34,14 @@ const Category = ({ category }) => {
                 </Card.Text>
             </Card.Body>
             <Card.Header className='d-flex justify-content-between px-3 align-items-center'>
-                <div>
+                <div className='d-flex gap-3 '>
+                    <Rating
+                        placeholderRating={rating.number}
+                        // readonly
+                        emptySymbol={<FaRegStar></FaRegStar>}
+                        placeholderSymbol={<FaStar></FaStar>}
+                        fullSymbol={<FaStar></FaStar>}
+                    />
                     <p>{rating.number}</p>
                 </div>
                 <div className='d-flex align-items-center gap-2 fw-bold'>
