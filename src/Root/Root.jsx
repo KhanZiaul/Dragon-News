@@ -14,6 +14,9 @@ const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path:'news'
+    }
 ]);
 
 export default router ;

@@ -1,14 +1,29 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
-import { FaEye } from 'react-icons/fa';
+import { FaEye , FaRegBookmark , FaShareAlt} from 'react-icons/fa';
+import './Category.css'
 
 
 const Category = ({ category }) => {
-    const { image_url, title, details, total_view } = category
+    const { image_url, title, details, total_view, author , rating} = category
     return (
         <Card className='my-5'>
-            <Card.Header>Featured</Card.Header>
+            <Card.Header className='d-flex justify-content-between px-3 align-items-center'>
+                <div className='d-flex'>
+                    <div>
+                        <img className='w-75 rounded-circle author-image' src={author.img} alt="" />
+                    </div>
+                    <div className=''>
+                        <p className='fw-bold'>{author.name}</p>
+                        <p>{author.published_date}</p>
+                    </div>
+                </div>
+                <div className='d-flex align-items-center gap-3 fw-bold'>
+                    <p> <FaRegBookmark /> </p>
+                    <p> <FaShareAlt /> </p>
+                </div>
+            </Card.Header>
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Img className='my-4' variant="top" src={image_url} />
@@ -18,7 +33,7 @@ const Category = ({ category }) => {
             </Card.Body>
             <Card.Header className='d-flex justify-content-between px-3 align-items-center'>
                 <div>
-
+                    <p>{rating.number}</p>
                 </div>
                 <div className='d-flex align-items-center gap-2 fw-bold'>
                     <p> <FaEye /> </p>
