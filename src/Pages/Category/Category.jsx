@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
+import moment from 'moment';
 import { FaEye , FaRegBookmark , FaShareAlt} from 'react-icons/fa';
 import './Category.css'
 
@@ -16,7 +17,7 @@ const Category = ({ category }) => {
                     </div>
                     <div className=''>
                         <p className='fw-bold'>{author.name}</p>
-                        <p>{author.published_date}</p>
+                        <p>{moment(author?.published_date).format("YYYY-MM-D")}</p>
                     </div>
                 </div>
                 <div className='d-flex align-items-center gap-3 fw-bold'>
