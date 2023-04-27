@@ -1,14 +1,19 @@
 import React from 'react';
-import {useParams , useLoaderData} from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
 
-const Category = () => {
-    let { id } = useParams();
-    const categories = useLoaderData()
-    console.log(categories)
+const Category = ({category}) => {
     return (
-        <div>
-            <h2>category data </h2>
-        </div>
+        <Card>
+            <Card.Header>Featured</Card.Header>
+            <Card.Body>
+                <Card.Title>Special title treatment</Card.Title>
+                <Card.Img variant="top" src="holder.js/100px160" />
+                <Card.Text>
+                    With supporting text below as a natural lead-in to additional content.
+                </Card.Text>
+            </Card.Body>
+            <Card.Header>Featured</Card.Header>
+        </Card>
     );
 };
 

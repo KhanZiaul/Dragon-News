@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layouts/Main";
-import Category from "../Pages/Category/Category";
+import Categories from "../Pages/Categories/Categories";
 
 const router = createBrowserRouter([
     {
@@ -9,7 +9,7 @@ const router = createBrowserRouter([
         children:[
             {
                 path: "/category/:id",
-                element: <Category></Category>,
+                element: <Categories></Categories>,
                 loader:({params}) => fetch(`http://localhost:3000/categories/${params.id}`)
             }
         ]
