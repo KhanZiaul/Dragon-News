@@ -1,10 +1,9 @@
 import React from 'react';
-import { useParams, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import Category from '../Category/Category';
 
 
 const Categories = () => {
-    let { id } = useParams();
     const categories = useLoaderData()
     console.log(categories)
     return (
