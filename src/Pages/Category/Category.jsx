@@ -6,7 +6,7 @@ import './Category.css'
 
 
 const Category = ({ category }) => {
-    const { image_url, title, details, total_view, author , rating} = category
+    const { image_url, title, details, total_view, author , rating , _id} = category
     return (
         <Card className='my-5'>
             <Card.Header className='d-flex justify-content-between px-3 align-items-center'>
@@ -28,7 +28,7 @@ const Category = ({ category }) => {
                 <Card.Title>{title}</Card.Title>
                 <Card.Img className='my-4' variant="top" src={image_url} />
                 <Card.Text>
-                    {details.length < 250 ? details : <>{details.slice(0, 250)}... <Link className='text-decoration-none text-danger fw-bold'>Read more</Link> </>}
+                    {details.length < 250 ? details : <>{details.slice(0, 250)}... <Link to={`/news/${_id}`} className='text-decoration-none text-danger fw-bold'>Read more</Link> </>}
                 </Card.Text>
             </Card.Body>
             <Card.Header className='d-flex justify-content-between px-3 align-items-center'>
