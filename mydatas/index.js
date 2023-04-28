@@ -9,10 +9,6 @@ const categories = require('./categories.json')
 
 const news = require('./news.json')
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
-
 app.get('/datas', (req, res) => {
     res.send(categories)
 })
@@ -26,6 +22,7 @@ app.get('/news/:id', (req, res) => {
     const singleNews = news.find(n => n._id == id)
     res.send(singleNews)
 })
+
 
 app.get('/categories/:id', (req, res) => {
     const id = req.params.id

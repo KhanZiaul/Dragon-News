@@ -5,7 +5,6 @@ import Category from '../Category/Category';
 
 const Categories = () => {
     const categories = useLoaderData()
-    console.log(categories)
     return (
         <div>
             <h2>category data </h2>
