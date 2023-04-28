@@ -11,11 +11,28 @@ const router = createBrowserRouter([
         path: "/",
         element: <Main></Main>,
         children:[
+            // {
+            //     path: "/",
+            //     element: <Categories></Categories>,
+            //     loader:() => fetch('http://localhost:3000/news')
+            // },
             {
-                path: "/",
+                path: "/category/:id",
                 element: <Categories></Categories>,
-                loader:() => fetch('http://localhost:3000/news')
-            },
+                loader:({params}) => fetch(`http://localhost:3000/categories/${params.id}`)
+            }
+        ]
+    },
+    {
+        // path: "/",
+        path: "catrgory",
+        element: <Main></Main>,
+        children:[
+            // {
+            //     path: "/",
+            //     element: <Categories></Categories>,
+            //     loader:() => fetch('http://localhost:3000/news')
+            // },
             {
                 path: "/category/:id",
                 element: <Categories></Categories>,
