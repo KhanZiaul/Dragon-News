@@ -21,7 +21,7 @@ const NavigationVar = () => {
                             <NavLink className='text-decoration-none text-black fw-bold' href="#action2">About</NavLink>
                             <NavLink className='text-decoration-none text-black fw-bold' href="#">career</NavLink>
                         </Nav>
-                        <div className="d-flex gap-5 align-items-center">
+                        <div className="d-flex gap-3 align-items-center">
                             <p>Profile</p>
                             <Link to='/login'><Button variant="dark">Login</Button></Link>
                         </div>
