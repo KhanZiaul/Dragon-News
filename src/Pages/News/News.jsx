@@ -1,6 +1,8 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import { useLoaderData } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
 
 const News = () => {
     const news = useLoaderData()
@@ -17,6 +19,7 @@ const News = () => {
                         {details}
                     </Card.Text>
                 </Card.Body>
+                <Button className='w-50 ms-3 mb-4' variant="danger"> <FaArrowLeft /> All news in this category</Button>
             </Card>
 
         </div>
