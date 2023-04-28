@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import { Link, useLoaderData } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
+import EditorsInsight from './EditorsInsight';
 
 const News = () => {
     const news = useLoaderData()
@@ -22,6 +23,8 @@ const News = () => {
                 <Link to={`/category/${category_id}`}><Button className='w-50 ms-3 mb-4' variant="danger"> <FaArrowLeft /> All news in this category</Button></Link>
             </Card>
 
+            <h2 className='mb-3'>Editors Insight</h2>
+            <EditorsInsight></EditorsInsight>
         </div>
     );
 };
