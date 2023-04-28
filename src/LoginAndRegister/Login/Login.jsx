@@ -22,6 +22,11 @@ const Login = () => {
                         <Form.Label className='fw-bold'>Password</Form.Label>
                         <Form.Control name='password' type="password" placeholder="Enter your password" />
                     </Form.Group>
+
+                    <Form.Group className="mb-4" controlId="formBasicCheckbox">
+                        <Form.Check type="checkbox" label="Check me out" />
+                    </Form.Group>
+                    
                     <Button className='w-100' variant="dark" type="submit">
                         Login
                     </Button>
