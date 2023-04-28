@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 const Register = () => {
     return (
         <div>
-            <NavigationVar></NavigationVar>
             <div className='w-50 mx-auto'>
                 <h2 className='text-center my-5 fw-bold'>Register your account</h2>
                 <Form >

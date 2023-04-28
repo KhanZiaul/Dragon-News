@@ -1,12 +1,10 @@
 import React from 'react';
-import NavigationVar from '../../Shared/NavigationVar/NavigationVar';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
         <div>
-            <NavigationVar></NavigationVar>
             <div className='w-50 mx-auto'>
                 <h2 className='text-center my-5 fw-bold'>Login your account</h2>
                 <Form >
@@ -26,7 +24,7 @@ const Login = () => {
                     <Form.Group className="mb-4" controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Check me out" />
                     </Form.Group>
-                    
+
                     <Button className='w-100' variant="dark" type="submit">
                         Login
                     </Button>
