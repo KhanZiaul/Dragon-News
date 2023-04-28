@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const NavigationVar = () => {
     return (
@@ -23,7 +23,7 @@ const NavigationVar = () => {
                         </Nav>
                         <div className="d-flex gap-5 align-items-center">
                             <p>Profile</p>
-                            <Button variant="dark">Login</Button>
+                            <Link to='/login'><Button variant="dark">Login</Button></Link>
                         </div>
                     </Navbar.Collapse>
                 </Container>
