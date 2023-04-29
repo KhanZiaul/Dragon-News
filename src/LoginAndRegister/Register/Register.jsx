@@ -2,16 +2,32 @@ import React from 'react';
 import NavigationVar from '../../Shared/NavigationVar/NavigationVar';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Register = () => {
-    function formHandler(e){
+
+    const { createUser } = useContext(AuthContext)
+
+    function formHandler(e) {
         e.preventDefault()
         const Name = e.target.name.value;
         const photoURL = e.target.photo.value;
         const Email = e.target.email.value;
         const Password = e.target.password.value;
 
-        console.log(Name,Email,Password,photoURL)
+        console.log(Name, Email, Password, photoURL)
+
+        createUser(Email, Password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user)
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+            });
+
+            e.target.reset()
     }
 
     return (
@@ -26,7 +42,7 @@ const Register = () => {
 
                         </Form.Text>
                     </Form.Group>
-                    
+
                     <Form.Group className="mb-4" controlId="formBasicEmail">
                         <Form.Label className='fw-bold'>Photo URL</Form.Label>
                         <Form.Control type="text" name='photo' placeholder="Enter your photo URL" />
