@@ -39,7 +39,7 @@ const router = createBrowserRouter([
             {
                 path: ":id",
                 element: <Categories></Categories>,
-                loader:({params}) => fetch(`http://localhost:3000/categories/${params.id}`)
+                loader:({params}) => fetch(`https://mydatas-khanziaul.vercel.app/categories/${params.id}`)
             },
         ]
     },
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
             {
                 path:':id',
                 element:<PrivateRouter> <News></News> </PrivateRouter>,
-                loader:({params})=> fetch(`http://localhost:3000/news/${params.id}`)
+                loader:({params})=> fetch(`https://mydatas-khanziaul.vercel.app/news/${params.id}`)
             }
         ]
     }
