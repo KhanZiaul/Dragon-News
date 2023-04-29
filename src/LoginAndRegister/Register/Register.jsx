@@ -4,6 +4,7 @@ import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
 
@@ -22,14 +23,24 @@ const Register = () => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log(user)
+                userProfile( userCredential.user , Name , photoURL)
             })
             .catch((error) => {
                 const errorMessage = error.message;
             });
 
-            e.target.reset()
+        e.target.reset()
     }
 
+    function userProfile(user,name,url) {
+        updateProfile(user, {
+            displayName:name, photoURL:url
+        }).then(() => {
+
+        }).catch((error) => {
+
+        });
+    }
     return (
         <div>
             <div className='w-50 mx-auto'>
