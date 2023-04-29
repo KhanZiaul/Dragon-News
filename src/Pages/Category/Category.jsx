@@ -2,9 +2,10 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 import moment from 'moment';
-import { FaEye, FaRegBookmark, FaShareAlt , FaStar , FaRegStar} from 'react-icons/fa';
+import { FaEye, FaRegBookmark, FaShareAlt, FaStar, FaRegStar } from 'react-icons/fa';
 import './Category.css'
-import Rating from 'react-rating';
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
 
 const Category = ({ category }) => {
@@ -34,15 +35,9 @@ const Category = ({ category }) => {
                 </Card.Text>
             </Card.Body>
             <Card.Header className='d-flex justify-content-between px-3 align-items-center'>
-                <div className='d-flex gap-3 '>
-                    <Rating
-                        placeholderRating={rating.number}
-                        // readonly
-                        emptySymbol={<FaRegStar></FaRegStar>}
-                        placeholderSymbol={<FaStar></FaStar>}
-                        fullSymbol={<FaStar></FaStar>}
-                    />
-                    <p>{rating.number}</p>
+                <div className='d-flex align-items-center gap-3 '>
+                    <Rating style={{ maxWidth: 100 }} value={rating.number}  readOnly />
+                    <span>{rating.number}</span>
                 </div>
                 <div className='d-flex align-items-center gap-2 fw-bold'>
                     <p> <FaEye /> </p>
