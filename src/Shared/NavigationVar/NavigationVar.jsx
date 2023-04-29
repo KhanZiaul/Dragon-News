@@ -10,7 +10,15 @@ import './NavigationVar.css'
 import { FaRegUser } from 'react-icons/fa';
 
 const NavigationVar = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
+
+    function signOutHandler() {
+        logOut().then(() => {
+
+        }).catch((error) => {
+
+        });
+    }
     return (
         <Container>
             <Navbar bg="light" expand="lg">
@@ -34,10 +42,10 @@ const NavigationVar = () => {
                                             <span>{user.email}</span>
                                             <img className='profile rounded-circle ms-3' src={user.photoURL} alt="" />
                                         </div>
-                                        <Link to='/login'><Button variant="dark">Logout</Button></Link>
+                                        <Link onClick={signOutHandler}><Button variant="dark">Logout</Button></Link>
                                     </div>
                                     :
-                                    <div className='d-flex gap-3 align-items-cenetr'>
+                                    <div className='d-flex gap-3 align-items-cenetr align-items-center'>
                                         <FaRegUser />
                                         <Link to='/login'><Button variant="dark">Login</Button></Link>
                                     </div>
