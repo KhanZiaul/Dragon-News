@@ -4,11 +4,21 @@ import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
+    function formHandler(e){
+        e.preventDefault()
+        const Name = e.target.name.value;
+        const photoURL = e.target.photo.value;
+        const Email = e.target.email.value;
+        const Password = e.target.password.value;
+
+        console.log(Name,Email,Password,photoURL)
+    }
+
     return (
         <div>
             <div className='w-50 mx-auto'>
                 <h2 className='text-center my-5 fw-bold'>Register your account</h2>
-                <Form >
+                <Form onSubmit={formHandler}>
                     <Form.Group className="mb-4" controlId="formBasicEmail">
                         <Form.Label className='fw-bold'>Your Name</Form.Label>
                         <Form.Control type="text" name='name' placeholder="Enter your name" />
@@ -19,7 +29,7 @@ const Register = () => {
                     
                     <Form.Group className="mb-4" controlId="formBasicEmail">
                         <Form.Label className='fw-bold'>Photo URL</Form.Label>
-                        <Form.Control type="text" name='image-url' placeholder="Enter your photo URL" />
+                        <Form.Control type="text" name='photo' placeholder="Enter your photo URL" />
                         <Form.Text className="text-muted">
 
                         </Form.Text>
