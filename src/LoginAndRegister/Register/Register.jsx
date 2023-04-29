@@ -48,7 +48,7 @@ const Register = () => {
                 <Form onSubmit={formHandler}>
                     <Form.Group className="mb-4" controlId="formBasicEmail">
                         <Form.Label className='fw-bold'>Your Name</Form.Label>
-                        <Form.Control type="text" name='name' placeholder="Enter your name" />
+                        <Form.Control type="text" name='name' placeholder="Enter your name" required/>
                         <Form.Text className="text-muted">
 
                         </Form.Text>
@@ -56,7 +56,7 @@ const Register = () => {
 
                     <Form.Group className="mb-4" controlId="formBasicEmail">
                         <Form.Label className='fw-bold'>Photo URL</Form.Label>
-                        <Form.Control type="text" name='photo' placeholder="Enter your photo URL" />
+                        <Form.Control type="text" name='photo' placeholder="Enter your photo URL" required/>
                         <Form.Text className="text-muted">
 
                         </Form.Text>
@@ -64,7 +64,7 @@ const Register = () => {
 
                     <Form.Group className="mb-4" controlId="formBasicEmail">
                         <Form.Label className='fw-bold'>Email address</Form.Label>
-                        <Form.Control type="email" name='email' placeholder="Enter your email address" />
+                        <Form.Control type="email" name='email' placeholder="Enter your email address" required/>
                         <Form.Text className="text-muted">
 
                         </Form.Text>
@@ -72,7 +72,7 @@ const Register = () => {
 
                     <Form.Group className="mb-4" controlId="formBasicPassword">
                         <Form.Label className='fw-bold'>Password</Form.Label>
-                        <Form.Control name='password' type="password" placeholder="Enter your password" />
+                        <Form.Control name='password' type="password" placeholder="Enter your password" required/>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">

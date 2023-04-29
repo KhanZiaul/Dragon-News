@@ -1,8 +1,12 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
+import { useContext } from 'react';
 
 const Login = () => {
+
+    const { signInUser } = useContext(AuthContext)
 
     function formHandler(e) {
 
@@ -11,6 +15,15 @@ const Login = () => {
         const Password = e.target.password.value;
 
         console.log(Email, Password)
+
+        signInUser(Email,Password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user)
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+            });
 
         e.target.reset()
     }
@@ -22,7 +35,7 @@ const Login = () => {
                 <Form onSubmit={formHandler}>
                     <Form.Group className="mb-4" controlId="formBasicEmail">
                         <Form.Label className='fw-bold'>Email address</Form.Label>
-                        <Form.Control type="email" name='email' placeholder="Enter your email address" />
+                        <Form.Control type="email" name='email' placeholder="Enter your email address" required />
                         <Form.Text className="text-muted">
 
                         </Form.Text>
@@ -30,7 +43,7 @@ const Login = () => {
 
                     <Form.Group className="mb-4" controlId="formBasicPassword">
                         <Form.Label className='fw-bold'>Password</Form.Label>
-                        <Form.Control name='password' type="password" placeholder="Enter your password" />
+                        <Form.Control name='password' type="password" placeholder="Enter your password" required />
                     </Form.Group>
 
                     <Form.Group className="mb-4" controlId="formBasicCheckbox">
