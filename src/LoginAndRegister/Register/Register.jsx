@@ -5,12 +5,16 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import { useState } from 'react';
 
 const Register = () => {
 
     const { createUser } = useContext(AuthContext)
 
+    const [accepted , setAccepted] = useState(false)
+
     function formHandler(e) {
+
         e.preventDefault()
         const Name = e.target.name.value;
         const photoURL = e.target.photo.value;
@@ -41,6 +45,10 @@ const Register = () => {
 
         });
     }
+    function checkboxHandler(event) {
+        setAccepted(event.target.checked)
+    }
+
     return (
         <div>
             <div className='w-50 mx-auto'>
@@ -78,10 +86,11 @@ const Register = () => {
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check 
                         type="checkbox" 
+                        onClick={checkboxHandler}
                         label={<>Accept <Link to='/terms'>Terms and Conditions</Link></>} />
                     </Form.Group>
 
-                    <Button className='w-100' variant="dark" type="submit">
+                    <Button className='w-100' variant="dark" type="submit" disabled={!accepted}>
                         Register
                     </Button>
                     <Form.Group className="my-4 text-center" controlId="formBasicCheckbox">
