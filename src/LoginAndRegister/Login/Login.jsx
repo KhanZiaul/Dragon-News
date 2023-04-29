@@ -3,11 +3,23 @@ import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+
+    function formHandler(e) {
+
+        e.preventDefault()
+        const Email = e.target.email.value;
+        const Password = e.target.password.value;
+
+        console.log(Email, Password)
+
+        e.target.reset()
+    }
+
     return (
         <div>
             <div className='w-50 mx-auto'>
                 <h2 className='text-center my-5 fw-bold'>Login your account</h2>
-                <Form >
+                <Form onSubmit={formHandler}>
                     <Form.Group className="mb-4" controlId="formBasicEmail">
                         <Form.Label className='fw-bold'>Email address</Form.Label>
                         <Form.Control type="email" name='email' placeholder="Enter your email address" />
