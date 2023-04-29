@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { useContext } from 'react';
 import { useRef } from 'react';
@@ -8,11 +8,12 @@ import { useRef } from 'react';
 const Login = () => {
 
     const { signInUser, passwordResetEmail } = useContext(AuthContext)
-
     const reference = useRef()
-
+    const location = useLocation()
+    console.log(location)
+    const from = location?.state?.from?.pathname || '/'
+    const navigate = useNavigate()
     function formHandler(e) {
-
         e.preventDefault()
         const Email = e.target.email.value;
         const Password = e.target.password.value;
@@ -20,6 +21,7 @@ const Login = () => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log(user)
+                navigate(from , { replace: true })
             })
             .catch((error) => {
                 const errorMessage = error.message;
