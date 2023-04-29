@@ -3,19 +3,19 @@ import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { useContext } from 'react';
+import { useRef } from 'react';
 
 const Login = () => {
 
-    const { signInUser , passwordResetEmail} = useContext(AuthContext)
+    const { signInUser, passwordResetEmail } = useContext(AuthContext)
+
+    const reference = useRef()
 
     function formHandler(e) {
 
         e.preventDefault()
         const Email = e.target.email.value;
         const Password = e.target.password.value;
-
-        console.log(Email, Password)
-
         signInUser(Email, Password)
             .then((userCredential) => {
                 const user = userCredential.user;
@@ -28,8 +28,15 @@ const Login = () => {
         e.target.reset()
     }
 
-    function forgetPasswordHandler(){
-
+    function forgetPasswordHandler() {
+        const Email = reference.current.value;
+        passwordResetEmail(Email)
+            .then(() => {
+                alert('Password Reset Email Send')
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+            });
     }
 
     return (
@@ -39,7 +46,7 @@ const Login = () => {
                 <Form onSubmit={formHandler}>
                     <Form.Group className="mb-4" controlId="formBasicEmail">
                         <Form.Label className='fw-bold'>Email address</Form.Label>
-                        <Form.Control type="email" name='email' placeholder="Enter your email address" required />
+                        <Form.Control ref={reference} type="email" name='email' placeholder="Enter your email address" required />
                         <Form.Text className="text-muted">
 
                         </Form.Text>
