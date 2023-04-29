@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Terms = () => {
     return (
         <Container>
-            <p>
+            <p className='mt-5'>
 
                 1. Acceptable Use Policy: This outlines the terms and conditions for using the news site, including any restrictions on content and behavior. <br />
 
