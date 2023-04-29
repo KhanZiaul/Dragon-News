@@ -10,7 +10,7 @@ import './NavigationVar.css'
 import { FaRegUser } from 'react-icons/fa';
 
 const NavigationVar = () => {
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     return (
         <Container>
             <Navbar bg="light" expand="lg">
@@ -28,9 +28,20 @@ const NavigationVar = () => {
                         </Nav>
                         <div className="d-flex gap-3 align-items-center">
                             {
-                                user ? <img className='profile rounded-circle' src={user.photoURL} alt="" /> : <FaRegUser/>
+                                user ?
+                                    <div className='d-flex gap-3 align-items-cenetr'>
+                                        <div >
+                                            <span>{user.email}</span>
+                                            <img className='profile rounded-circle ms-3' src={user.photoURL} alt="" />
+                                        </div>
+                                        <Link to='/login'><Button variant="dark">Logout</Button></Link>
+                                    </div>
+                                    :
+                                    <div className='d-flex gap-3 align-items-cenetr'>
+                                        <FaRegUser />
+                                        <Link to='/login'><Button variant="dark">Login</Button></Link>
+                                    </div>
                             }
-                            <Link to='/login'><Button variant="dark">Login</Button></Link>
                         </div>
                     </Navbar.Collapse>
                 </Container>
