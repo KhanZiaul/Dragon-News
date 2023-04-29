@@ -6,7 +6,7 @@ import { useContext } from 'react';
 
 const Login = () => {
 
-    const { signInUser } = useContext(AuthContext)
+    const { signInUser , passwordResetEmail} = useContext(AuthContext)
 
     function formHandler(e) {
 
@@ -16,7 +16,7 @@ const Login = () => {
 
         console.log(Email, Password)
 
-        signInUser(Email,Password)
+        signInUser(Email, Password)
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log(user)
@@ -26,6 +26,10 @@ const Login = () => {
             });
 
         e.target.reset()
+    }
+
+    function forgetPasswordHandler(){
+
     }
 
     return (
@@ -48,6 +52,10 @@ const Login = () => {
 
                     <Form.Group className="mb-4" controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Check me out" />
+                    </Form.Group>
+
+                    <Form.Group className="my-4" controlId="formBasicCheckbox">
+                        <Link onClick={forgetPasswordHandler}>Forget password</Link>
                     </Form.Group>
 
                     <Button className='w-100' variant="dark" type="submit">
